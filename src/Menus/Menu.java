@@ -11,6 +11,7 @@ public class Menu {
     public static Player player = new Player();
     public static InputHandler in = new InputHandler();
     public static WeaponsList weapons = new WeaponsList();
+    public static CaveOneFull enc = new CaveOneFull();
 
 
     public static void startGame(){
@@ -48,13 +49,14 @@ public class Menu {
         System.out.println("As such I will present you with two choices two weapons to aid you in your journey!");
         System.out.println("Your choices are \n1. The Hammer of Nausea \n2. The Trusty Sword of the Elder One");
         weaponPicker(weapons.TheHammerOfNausea, weapons.TheTrustySwordOfTheElderOne);
-
+        enc.firstCaveEncounters();
     }
     private static void caveTwo(){
         System.out.println("Very well you have chosen the cave of the left!");
         System.out.println("As such I will present you with two choices two weapons to aid you in your journey!");
         System.out.println("Your choices shall be \n1. The Gun of Eternal Damnation \n2. The Sword of the Wise One!");
         weaponPicker(weapons.TheGunOfEternalDamnation, weapons.TheSwordOfTheWiseOne);
+        enc.firstCaveEncounters();
     }
 
     private static void weaponPicker(Weapon weaponOne, Weapon weaponTwo) {

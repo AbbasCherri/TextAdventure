@@ -1,5 +1,6 @@
 package Entity;
 
+import Input.InputHandler;
 import Items.Item;
 import Items.Weapon;
 
@@ -11,6 +12,7 @@ public class Player implements Entity {
 
     Item place = new Item("",0, 0);
     private Item[] inventory = {place, place, place, place, place, place, place, place, place};
+    public InputHandler input = new InputHandler();
 
 
     @Override
@@ -65,16 +67,18 @@ public class Player implements Entity {
             }
         }
 
+        // Displays the Weapons
         j = 1;
         for (Weapon weapon : attacks) {
             System.out.println(j + ". " + weapon + " does " + weapon.getDamage() + " damage");
             j++;
         }
 
-        
+        // Picking the Weapon
+        int choice = input.takeInt() - 1;
 
 
-        return 0;
+        return attacks[choice].getDamage();
     }
 
 
