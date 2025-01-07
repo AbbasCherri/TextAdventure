@@ -3,15 +3,14 @@ package Menus;
 import Entity.Player;
 import Input.InputHandler;
 import Items.Weapon;
+import Items.List.WeaponsList;
 
 import java.util.NoSuchElementException;
-
-
-// Todo fix 
 
 public class Menu {
     public static Player player = new Player();
     public static InputHandler in = new InputHandler();
+    public static WeaponsList weapons = new WeaponsList();
 
 
     public static void startGame(){
@@ -48,28 +47,25 @@ public class Menu {
         System.out.println("Very well you have chosen the cave of the left!");
         System.out.println("As such I will present you with two choices two weapons to aid you in your journey!");
         System.out.println("Your choices are \n1. The Hammer of Nausea \n2. The Trusty Sword of the Elder One");
-        weaponPicker("The Hammer of Nausea", "The Trusty Sword of the Elder One");
+        weaponPicker(weapons.TheHammerOfNausea, weapons.TheTrustySwordOfTheElderOne);
 
     }
     private static void caveTwo(){
         System.out.println("Very well you have chosen the cave of the left!");
         System.out.println("As such I will present you with two choices two weapons to aid you in your journey!");
-        System.out.println("Your choices shall be \n1. The Gun of Eternal Damnation \n2. The Book of EverLasting Peace!");
-        weaponPicker("The Gun of Eternal Damnation", "The Book of EverLasting Peace");
+        System.out.println("Your choices shall be \n1. The Gun of Eternal Damnation \n2. The Sword of the Wise One!");
+        weaponPicker(weapons.TheGunOfEternalDamnation, weapons.TheSwordOfTheWiseOne);
     }
 
-    private static void weaponPicker(String weaponOne, String weaponTwo) {
+    private static void weaponPicker(Weapon weaponOne, Weapon weaponTwo) {
         int choice = in.takeInt();
         do{
             if (choice == 1) {
-
-                // Creating new weapon
-                Weapon weaponUno = new Weapon(weaponOne, 50, 1, 20, 2);
-                player.addItem(weaponUno);
-                System.out.println(weaponOne + "has been added t your inventory!");
+                player.addItem(weaponOne);
+                System.out.println("CONGRATULATIONS! YOU HAVE ACQUIRED " + weaponOne);
             }if (choice == 2){
-                // Todo add weaponTwo to inventory
-                continue;
+                player.addItem(weaponTwo);
+                System.out.println("CONGRATULATIONS! YOU HAVE ACQUIRED " + weaponTwo);
             }else{
                 System.out.println("That is an invalid choice young one please try again!");
                 choice = in.takeInt();
