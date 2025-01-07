@@ -63,10 +63,10 @@ public class Menu {
         int choice = in.takeInt();
         do{
             if (choice == 1) {
-                player.addItem(weaponOne);
+                player.addWeapon(weaponOne);
                 System.out.println("CONGRATULATIONS! YOU HAVE ACQUIRED " + weaponOne);
             }if (choice == 2){
-                player.addItem(weaponTwo);
+                player.addWeapon(weaponTwo);
                 System.out.println("CONGRATULATIONS! YOU HAVE ACQUIRED " + weaponTwo);
             }else{
                 System.out.println("That is an invalid choice young one please try again!");
